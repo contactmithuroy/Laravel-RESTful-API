@@ -172,3 +172,17 @@ Route::group(['middleware' => 'auth:sanctum'], function(){
 Route::post("login",[UserController::class,'index']);
 
 ````
+How to login and get others route
+````
+Login route always stay outside
+
+Go Hedder in postman set
+Authorization and toker Beerer 
+[{"key":"Authorization","value":"Bearer 8|8L8XdIE599i3XATYzXTwESON6tLDEeQoXSMKnnFF","description":""}]
+and set your url for operation
+
+If any problem with this Operation go bellow and follow the link
+https://www.youtube.com/watch?v=P2dfXpUHy6U&list=PL8p2I9GklV46dciS4GDzBFHBi0JVIbnzT&index=55
+
+Good Luck
+````
