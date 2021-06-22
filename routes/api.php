@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ApiController;
 use App\Http\Controllers\DeviceController;
+use App\Http\Controllers\SubjectController;
 
 
 /*
@@ -36,7 +37,7 @@ Route::get("search/{name}",[DeviceController::class,'search']);
 
 Route::get("getData",[DeviceController::class,'getData']);
 
+// ---------------subject Api----------------------------------------------------------
 
-
-
+Route::apiResource('subject',SubjectController::class);
 
