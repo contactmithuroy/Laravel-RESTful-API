@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ApiController;
 use App\Http\Controllers\DeviceController;
 use App\Http\Controllers\SubjectController;
-
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,21 +23,35 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get("data",[ApiController::class,'getApi']);
+// ................................................................................
 
-Route::get("list",[DeviceController::class,'list']);
+Route::group(['middleware' => 'auth:sanctum'], function(){
+    //All secure URL's
 
-Route::post("add",[DeviceController::class,'addData']);
+    Route::get("list",[DeviceController::class,'list']);
 
+    Route::post("add",[DeviceController::class,'addData']);
 
-Route::put("update",[DeviceController::class,'update']);
+    Route::put("update",[DeviceController::class,'update']);
 
-Route::delete("delete/{id}",[DeviceController::class,'delete']);
+    Route::delete("delete/{id}",[DeviceController::class,'delete']);
 
-Route::get("search/{name}",[DeviceController::class,'search']);
+    Route::get("search/{name}",[DeviceController::class,'search']);
 
-Route::get("getData",[DeviceController::class,'getData']);
+    Route::get("getData",[DeviceController::class,'getData']);
+
+    // api resource
+    Route::apiResource('subject',SubjectController::class);
+
+    });
+
 
 // ---------------subject Api----------------------------------------------------------
 
-Route::apiResource('subject',SubjectController::class);
+//login route always stay outside
+Route::post("login",[UserController::class,'index']);
 
+// Roules
+go Hedder in postman set
+Authorization and toker Beerer 
+[{"key":"Authorization","value":"Bearer 8|8L8XdIE599i3XATYzXTwESON6tLDEeQoXSMKnnFF","description":""}]
